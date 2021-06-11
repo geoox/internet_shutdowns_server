@@ -11,9 +11,15 @@ router.get("/hello", (req, res, next) => {
 
 router.post("/new_message", (req, res, next) => {
     console.log('POST new message body: ', req.body);
-    console.log('POST body stringify',JSON.stringify(yourObjName))
+
+    const message = req.body.payload_raw;
+    console.log('received message: ', message);
+
+    // decode from base64 to string
+    var decodedMessage = Buffer.from(message, 'base64').toString('ascii');
+
     const newMessage = new Message({
-        "message": req.body.message,
+        "message": decodedMessage,
         "date": new Date()
     });
 
