@@ -10,7 +10,8 @@ router.get("/hello", (req, res, next) => {
 });
 
 router.post("/new_message", (req, res, next) => {
-    console.log('POST new message body: '+req.body);
+    console.log('POST new message body: ', req.body);
+    console.log('POST body stringify',JSON.stringify(yourObjName))
     const newMessage = new Message({
         "message": req.body.message,
         "date": new Date()
