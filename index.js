@@ -4,6 +4,9 @@ const bodyParser = require("body-parser");
 const routes = require("./routes");
 const cors = require('cors');
 const mongoose = require('mongoose');
+const wakeUpDyno = require("./wake_dyno");
+
+const endpointURL = 'https://internet-shutdowns-server-host.herokuapp.com/all_messages';
 
 cors({credentials: true, origin: true})
 app.use(cors());
@@ -19,4 +22,7 @@ app.use(bodyParser.json());
 
 app.use("/", routes);
 
-app.listen(port, ()=> console.log("Listening to 8070..."));
+app.listen(port, () => {
+    console.log("Server is starting..");
+    wakeUpDyno(endpointURL);
+});
