@@ -6,6 +6,7 @@ const wakeUpDyno = (url, interval = 5, callback) => {
     setTimeout(() => {
 
         try { 
+            // HTTP GET request to the dyno's url
             fetch(url).then(() => console.log(`Fetching ${url}.`)); 
         }
         catch (err) { // catch fetch errors

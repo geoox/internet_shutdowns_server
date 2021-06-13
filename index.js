@@ -6,7 +6,8 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const wakeUpDyno = require("./wake_dyno");
 
-const endpointURL = 'https://internet-shutdowns-server-host.herokuapp.com/all_messages';
+const server_endpointURL = 'https://internet-shutdowns-server-host.herokuapp.com/all_messages';
+const endclient_endpointURL = 'https://internet-shutdowns-endclient.herokuapp.com/';
 
 cors({credentials: true, origin: true})
 app.use(cors());
@@ -24,5 +25,5 @@ app.use("/", routes);
 
 app.listen(port, () => {
     console.log("Server is starting..");
-    wakeUpDyno(endpointURL);
+    wakeUpDyno(endclient_endpointURL);
 });
