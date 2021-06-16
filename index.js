@@ -25,5 +25,5 @@ app.use("/", routes);
 
 app.listen(port, () => {
     console.log("Server is starting..");
-    wakeUpDyno(endclient_endpointURL);
+    wakeUpDyno(server_endpointURL);
 });
